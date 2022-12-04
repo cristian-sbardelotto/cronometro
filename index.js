@@ -2,19 +2,38 @@ let segundo = 0;
 let minuto = 0;
 let hora = 0;
 
+
+const iniciarBtn = document.querySelector('.iniciar');
+const pausarBtn = document.querySelector('.pausar');
+const pararBtn = document.querySelector('.parar');
 const contador = document.querySelector('h2');
 
 let tempo = 1000;
 let cronometro;
+let contando = false;
 
-const iniciar = () => (cronometro = setInterval(temporizador, tempo));
+const iniciar = () => {
+  contando = true;
 
-const pausar = () => clearInterval(cronometro);
+  contando ? iniciarBtn.removeEventListener('click', iniciar) : alert('erro!');
+
+  contando ? (cronometro = setInterval(temporizador, tempo)) : alert('erro!');
+};
+
+const pausar = () => {
+  clearInterval(cronometro);
+  contando = false;
+
+  contando == false ? iniciarBtn.addEventListener('click', iniciar): alert('erro!');
+};
 
 const parar = () => {
+  contando = false;
   clearInterval(cronometro);
   minuto, hora, (segundo = 0);
   contador.innerHTML = '00:00:00';
+
+  contando == false ? iniciarBtn.addEventListener('click', iniciar): alert('erro!');
 };
 
 const temporizador = () => {
@@ -27,6 +46,6 @@ const temporizador = () => {
   contador.innerHTML = format;
 };
 
-document.querySelector('.iniciar').addEventListener('click', iniciar);
-document.querySelector('.pausar').addEventListener('click', pausar);
-document.querySelector('.parar').addEventListener('click', parar);
+iniciarBtn.addEventListener('click', iniciar);
+pausarBtn.addEventListener('click', pausar);
+pararBtn.addEventListener('click', parar);
