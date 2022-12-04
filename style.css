@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  background-color: darkslategray;
+  border-radius: 15px;
+ 
+  width: fit-content;
+
+  padding: 1rem 2rem 1rem 2rem;
+
+  text-align: center;
+}
+
+button {
+  border-radius: 10px;
+  padding: 10px;
+  border-color: white;
+
+  cursor: pointer;
+}
+
+h2 {
+  margin-top: 1rem;
+}
+
+.iniciar {
+  background-color: rgb(92, 192, 33);
+}
+
+.pausar {
+  background-color: rgb(192, 189, 33);
+}
+
+.parar {
+  background-color: rgb(207, 44, 22);
+}
